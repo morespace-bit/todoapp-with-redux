@@ -3,11 +3,11 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { Provider } from "react-redux";
-import { CounStore } from "./redux/CountStore.js";
+import { CountStore } from "./redux/CountStore.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Provider store={CounStore}>
+    <Provider store={CountStore}>
       <App />
     </Provider>
   </StrictMode>
