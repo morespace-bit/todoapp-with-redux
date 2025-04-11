@@ -1,15 +1,22 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import CounterUi from "./components/CounterUi";
+import Todolist from "./components/Tdolist";
+import Todoform from "./components/Todoform";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const value = useSelector((state) => state.todo.todos);
   return (
-    <div>
-      <CounterUi />
+    <div className="min-h-screen w-full bg-gray-600">
+      <Todoform />
+      {value.map((dos) => {
+        return (
+          <div
+            key={dos.id}
+            className="w-full flex justify-center items-center flex-col"
+          >
+            <Todolist value={dos} />
+          </div>
+        );
+      })}
     </div>
   );
 }
